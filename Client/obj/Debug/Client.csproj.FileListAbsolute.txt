@@ -1,0 +1,63 @@
+C:\Users\Home\Documents\Visual Studio 2013\Projects\Final\Client\obj\Debug\Client.csprojResolveAssemblyReference.cache
+C:\Users\Home\Documents\Visual Studio 2013\Projects\Final\Client\obj\Debug\MainWindow.baml
+C:\Users\Home\Documents\Visual Studio 2013\Projects\Final\Client\obj\Debug\MainWindow.g.cs
+C:\Users\Home\Documents\Visual Studio 2013\Projects\Final\Client\obj\Debug\App.g.cs
+C:\Users\Home\Documents\Visual Studio 2013\Projects\Final\Client\obj\Debug\Client_MarkupCompile.cache
+C:\Users\Home\Documents\Visual Studio 2013\Projects\Final\Client\obj\Debug\Client.g.resources
+C:\Users\Home\Documents\Visual Studio 2013\Projects\Final\Client\obj\Debug\Client.Properties.Resources.resources
+C:\Users\Home\Documents\Visual Studio 2013\Projects\Final\Client\obj\Debug\Client.csproj.GenerateResource.Cache
+C:\Users\Home\Documents\Visual Studio 2013\Projects\Final\Client\bin\Debug\Client.exe.config
+C:\Users\Home\Documents\Visual Studio 2013\Projects\Final\Client\bin\Debug\Client.exe
+C:\Users\Home\Documents\Visual Studio 2013\Projects\Final\Client\bin\Debug\Client.pdb
+C:\Users\Home\Documents\Visual Studio 2013\Projects\Final\Client\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Home\Documents\Visual Studio 2013\Projects\Final\Client\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Home\Documents\Visual Studio 2013\Projects\Final\Client\obj\Debug\Client.exe
+C:\Users\Home\Documents\Visual Studio 2013\Projects\Final\Client\obj\Debug\Client.pdb
+C:\Users\victo_000\Desktop\Final\Client\bin\Debug\Client.exe.config
+C:\Users\victo_000\Desktop\Final\Client\obj\Debug\Client.exe
+C:\Users\victo_000\Desktop\Final\Client\obj\Debug\Client.pdb
+C:\Users\victo_000\Desktop\Final\Client\obj\Debug\Client.csprojResolveAssemblyReference.cache
+C:\Users\victo_000\Desktop\Final\Client\obj\Debug\MainWindow.baml
+C:\Users\victo_000\Desktop\Final\Client\obj\Debug\MainWindow.g.cs
+C:\Users\victo_000\Desktop\Final\Client\obj\Debug\App.g.cs
+C:\Users\victo_000\Desktop\Final\Client\obj\Debug\Client_MarkupCompile.cache
+C:\Users\victo_000\Desktop\Final\Client\obj\Debug\Client.g.resources
+C:\Users\victo_000\Desktop\Final\Client\obj\Debug\Client.Properties.Resources.resources
+C:\Users\victo_000\Desktop\Final\Client\obj\Debug\Client.csproj.GenerateResource.Cache
+C:\Users\victo_000\Desktop\Final\Client\bin\Debug\Client.exe
+C:\Users\victo_000\Desktop\Final\Client\bin\Debug\Client.pdb
+C:\Users\victo_000\Desktop\Final\Client\bin\Debug\Newtonsoft.Json.dll
+C:\Users\victo_000\Desktop\Final\Client\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Home\Desktop\yang\Final\Client\bin\Debug\Client.exe.config
+C:\Users\Home\Desktop\yang\Final\Client\obj\Debug\Client.exe
+C:\Users\Home\Desktop\yang\Final\Client\obj\Debug\Client.pdb
+C:\Users\Home\Desktop\yang\Final\Client\bin\Debug\Client.exe
+C:\Users\Home\Desktop\yang\Final\Client\bin\Debug\Client.pdb
+C:\Users\Home\Desktop\yang\Final\Client\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Home\Desktop\yang\Final\Client\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Home\Desktop\yang\Final\Client\obj\Debug\Client.csprojResolveAssemblyReference.cache
+C:\Users\Home\Desktop\yang\Final\Client\obj\Debug\MainWindow.baml
+C:\Users\Home\Desktop\yang\Final\Client\obj\Debug\MainWindow.g.cs
+C:\Users\Home\Desktop\yang\Final\Client\obj\Debug\App.g.cs
+C:\Users\Home\Desktop\yang\Final\Client\obj\Debug\Client_MarkupCompile.cache
+C:\Users\Home\Desktop\yang\Final\Client\obj\Debug\Client.g.resources
+C:\Users\Home\Desktop\yang\Final\Client\obj\Debug\Client.Properties.Resources.resources
+C:\Users\Home\Desktop\yang\Final\Client\obj\Debug\Client.csproj.GenerateResource.Cache
+C:\Users\Home\Desktop\yang\Final_yang\Client\bin\Debug\Client.exe.config
+C:\Users\Home\Desktop\yang\Final_yang\Client\obj\Debug\Client.exe
+C:\Users\Home\Desktop\yang\Final_yang\Client\obj\Debug\Client.pdb
+\\psf\Home\Desktop\DAISY\IP\Final_yang\Final_yang\Client\bin\Debug\Client.exe.config
+\\psf\Home\Desktop\DAISY\IP\Final_yang\Final_yang\Client\bin\Debug\Client.exe
+\\psf\Home\Desktop\DAISY\IP\Final_yang\Final_yang\Client\bin\Debug\Client.pdb
+\\psf\Home\Desktop\DAISY\IP\Final_yang\Final_yang\Client\bin\Debug\Newtonsoft.Json.dll
+\\psf\Home\Desktop\DAISY\IP\Final_yang\Final_yang\Client\bin\Debug\Newtonsoft.Json.xml
+\\psf\Home\Desktop\DAISY\IP\Final_yang\Final_yang\Client\obj\Debug\Client.csprojResolveAssemblyReference.cache
+\\psf\Home\Desktop\DAISY\IP\Final_yang\Final_yang\Client\obj\Debug\MainWindow.baml
+\\psf\Home\Desktop\DAISY\IP\Final_yang\Final_yang\Client\obj\Debug\MainWindow.g.cs
+\\psf\Home\Desktop\DAISY\IP\Final_yang\Final_yang\Client\obj\Debug\App.g.cs
+\\psf\Home\Desktop\DAISY\IP\Final_yang\Final_yang\Client\obj\Debug\Client_MarkupCompile.cache
+\\psf\Home\Desktop\DAISY\IP\Final_yang\Final_yang\Client\obj\Debug\Client.g.resources
+\\psf\Home\Desktop\DAISY\IP\Final_yang\Final_yang\Client\obj\Debug\Client.Properties.Resources.resources
+\\psf\Home\Desktop\DAISY\IP\Final_yang\Final_yang\Client\obj\Debug\Client.csproj.GenerateResource.Cache
+\\psf\Home\Desktop\DAISY\IP\Final_yang\Final_yang\Client\obj\Debug\Client.exe
+\\psf\Home\Desktop\DAISY\IP\Final_yang\Final_yang\Client\obj\Debug\Client.pdb

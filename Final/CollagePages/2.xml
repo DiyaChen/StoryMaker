@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Stories name="I love IP" description="I love IP&#xD;&#xA;I love IP&#xD;&#xA;I love IP" date="2015-05-05">
+  <Story id="3">
+    <Title>Internet Programming</Title>
+    <Text>Internet Programming
+Internet Programming</Text>
+    <AbsoluteImage>C:\Users\Home\Desktop\Final_yang\Final\CollagePages\UploadedFiles\Chrysanthemum.jpg</AbsoluteImage>
+    <RelativeImage>./UploadedFiles/Chrysanthemum.jpg</RelativeImage>
+    <DateOfBuild>2015-05-05</DateOfBuild>
+  </Story>
+  <Story id="4">
+    <Title>22</Title>
+    <Text>22</Text>
+    <AbsoluteImage>C:\Users\Home\Desktop\Final_yang\Final\CollagePages\UploadedFiles\Desert.jpg</AbsoluteImage>
+    <RelativeImage>./UploadedFiles/Desert.jpg</RelativeImage>
+    <DateOfBuild>2015-05-05</DateOfBuild>
+  </Story>
+  <Story id="5">
+    <Title>Internet Programming22</Title>
+    <Text>Internet Programming22</Text>
+    <AbsoluteImage>C:\Users\Home\Desktop\Final_yang\Final\CollagePages\UploadedFiles\Chrysanthemum.jpg</AbsoluteImage>
+    <RelativeImage>./UploadedFiles/Chrysanthemum.jpg</RelativeImage>
+    <DateOfBuild>2015-05-05</DateOfBuild>
+  </Story>
+  <Story id="9">
+    <Title>111</Title>
+    <Text>12312</Text>
+    <AbsoluteImage>\\psf\Home\Desktop\DAISY\IP\Final_yang\Final_yang\Final\CollagePages\UploadedFiles\4.jpg</AbsoluteImage>
+    <RelativeImage>./UploadedFiles/4.jpg</RelativeImage>
+    <DateOfBuild>2015-09-19</DateOfBuild>
+  </Story>
+  <Story id="10">
+    <Title>111</Title>
+    <Text>111</Text>
+    <AbsoluteImage>\\psf\Home\Desktop\DAISY\IP\Final_yang\Final_yang\Final\CollagePages\UploadedFiles\3.jpg</AbsoluteImage>
+    <RelativeImage>./UploadedFiles/3.jpg</RelativeImage>
+    <DateOfBuild>2015-09-19</DateOfBuild>
+  </Story>
+  <Story id="11">
+    <Title>wre</Title>
+    <Text>ytd</Text>
+    <AbsoluteImage>\\psf\Home\Desktop\DAISY\IP\Final_yang\Final_yang\Final\CollagePages\UploadedFiles\5.jpg</AbsoluteImage>
+    <RelativeImage>./UploadedFiles/5.jpg</RelativeImage>
+    <DateOfBuild>2015-09-19</DateOfBuild>
+  </Story>
+</Stories>

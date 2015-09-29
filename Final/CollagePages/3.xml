@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Stories name="Life in Beijing" description="Life in Beijing" date="2015-05-05">
+  <Story id="6">
+    <Title>not bad</Title>
+    <Text>not bad</Text>
+    <AbsoluteImage>C:\Users\Home\Desktop\Final_yang\Final\CollagePages\UploadedFiles\Jellyfish.jpg</AbsoluteImage>
+    <RelativeImage>./UploadedFiles/Jellyfish.jpg</RelativeImage>
+    <DateOfBuild>2015-05-05</DateOfBuild>
+  </Story>
+</Stories>

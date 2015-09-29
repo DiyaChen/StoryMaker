@@ -1,0 +1,49 @@
+﻿@model IEnumerable<My_lab7.Models.Collage>
+
+
+@{
+    ViewBag.Title = "Execute Story";
+}
+
+
+@section AddToHead{
+    <link href="@Url.Content("~/Content/Slider.css")" rel="stylesheet" type="text/css" />
+    <script src="/Scripts/Javascript_sliderTimeZoom.js"></script>
+}
+
+<h2>@ViewBag.Title.</h2>
+
+<br>
+<p align="center">
+    <input id="range2" type="range" name="range2" min="1" max="5001" value="" step="20" />
+</p>
+
+<div id="slide">
+    <a id="btnLeft" href="javascript:void(0);"></a>
+    <a id="btnRight" href="javascript:void(0);"></a>
+    <!--when change next image:style="left: -(n-1)*800px;"-->
+    <ul>
+
+
+@foreach (var item in Model) {
+
+        <li><iframe width="800" height="800" src="~/@Url.Content(item.PageLink)"></iframe></li>
+}
+    </ul>
+    <div id="ico" class="ico">
+
+@foreach (var item in Model)
+{
+    if (item.GetHashCode() == 0) { 
+        <a class="active" href="javascript:void(0);"></a>
+    }
+    else { 
+    <a href="javascript:void(0);"></a>
+    }
+}
+    </div>
+</div>
+
+
+
+

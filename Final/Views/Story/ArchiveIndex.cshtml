@@ -1,0 +1,104 @@
+﻿@model IEnumerable<My_lab7.Models.Story>
+
+@{
+    ViewBag.Title = "Archive";
+}
+
+<h2>ArchiveIndex</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.text)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DateOfBuild)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UserName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IsArchive)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        if (item.IsArchive == 0) { 
+        <tr>
+            <td width="20%">
+                @Html.DisplayFor(modelItem => item.title)
+            </td>
+            <td width="20%">
+                @Html.DisplayFor(modelItem => item.text)
+            </td>
+            <td width="20%">
+                @Html.DisplayFor(modelItem => item.DateOfBuild)
+            </td>
+            <td width="20%">
+                @Html.DisplayFor(modelItem => item.UserName)
+            </td>
+            <td width="20%">
+                @Html.DisplayFor(modelItem => item.IsArchive)
+            </td>
+            <td>
+                @Html.ActionLink("Archive", "Archive", new { id = item.id })
+            </td>
+        </tr>
+    }
+    }
+    </table>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.text)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DateOfBuild)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UserName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IsArchive)
+        </th>
+        <th></th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        if (item.IsArchive != 0)
+        {
+            <tr>
+                <td width="20%">
+                    @Html.DisplayFor(modelItem => item.title)
+                </td>
+                <td width="20%">
+                    @Html.DisplayFor(modelItem => item.text)
+                </td>
+                <td width="20%">
+                    @Html.DisplayFor(modelItem => item.DateOfBuild)
+                </td>
+                <td width="20%">
+                    @Html.DisplayFor(modelItem => item.UserName)
+                </td>
+                <td width="20%">
+                    @Html.DisplayFor(modelItem => item.IsArchive)
+                </td>
+                <td width="20%">
+                    @Html.ActionLink("UnArchive", "Archive", new { id = item.id })
+                </td>
+            </tr>
+        }
+    }
+</table>
+

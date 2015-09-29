@@ -1,0 +1,58 @@
+﻿@model IEnumerable<My_lab7.Models.Story>
+
+@{
+    ViewBag.Title = "Story Blocks";
+}
+
+<h2>Story Blocks</h2>
+
+<p>
+    @Html.ActionLink("Create New Story", "Create")
+</p>
+<table class="table">
+
+@foreach (var item in Model) {
+    if (item.IsArchive == 0) { 
+    <tr>
+        <th>
+            <br>
+           Title: @Html.DisplayFor(modelItem => item.title)
+        </th>
+        <th>
+            <br>
+            Collage: @Html.DisplayFor(modelItem => item.collage.name)
+        </th>
+        <th>
+            <br>
+            User: @Html.DisplayFor(modelItem => item.UserName)
+        </th>
+    </tr>
+
+    <tr>
+
+        <td>
+            @if (item.image != null)
+            {
+                <img width="240" height="180" src="@Url.Content(item.image.url)" alt="images" />
+            }
+            else
+            {
+                @:None
+            }
+          <br>
+            <pre>@Html.DisplayTextFor(modelItem => item.text)
+                </pre>
+                <br>
+            Create Date: @Html.DisplayFor(modelItem => item.DateOfBuild)
+                <br>
+            @Html.ActionLink("Edit", "Edit", new { id = item.id }) |
+            @Html.ActionLink("Details", "Details", new { id = item.id }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.id })
+        </td>
+        <td>
+            </td>
+
+    </tr>
+}
+}
+</table>

@@ -1,0 +1,133 @@
+﻿@model My_lab7.Models.Image
+
+@{
+    ViewBag.Title = "Create";
+}
+
+
+<script src="/Scripts/jquery-1.10.2.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        $('#btnUploadFile').on('click', function () {
+
+            var data = new FormData();
+
+            var files = $("#fileUpload").get(0).files;
+
+            // Add the uploaded image content to the form data collection
+            if (files.length > 0) {
+                data.append("UploadedImage", files[0]);
+            }
+
+            // Make Ajax request with the contentType = false, and procesDate = false
+            var ajaxRequest = $.ajax({
+                type: "POST",
+                url: "/api/fileupload/uploadfile",
+                contentType: false,
+                processData: false,
+                data: data,
+
+                success: function (message) {
+
+                    alert(message);
+
+                },
+                error: function () {
+                    alert("Error while invoking the Web API");
+                }
+            });
+
+            ajaxRequest.done(function (xhr, textStatus) {
+                // Do other operation
+            });
+        });
+    });
+
+    function showXmlInTable() {
+        $("#dvContent").append("<table border = 1px><tr><td>TITLE</td><td>ARTIST</td><td>COUNTRY</td><td>COMPANY</td><td>PRICE</td><td>YEAR</td></tr>");
+        $.ajax({
+            type: "GET",
+            url: "UploadedFiles/cd.xml",
+            dataType: "xml",
+            success: function (xml) {
+                $(xml).find('CD').each(function () {
+                    var a = $(this).find('TITLE').text();
+                    var b = $(this).find('ARTIST').text();
+                    var c = $(this).find('COUNTRY').text();
+                    var d = $(this).find('COMPANY').text();
+                    var e = $(this).find('PRICE').text();
+                    var f = $(this).find('YEAR').text();
+                    $("#dvContent").append("<tr><td>" + a + "</td><td>" + b + "</td><td>" + c + "</td><td>" + d + "</td><td>" + e + "</td><td>" + f + "</td></tr>");
+                });
+                $("#dvContent").append("</table>");
+            },
+            error: function () {
+                alert("An error occurred while processing XML file.");
+            }
+        });
+    }
+</script>
+
+
+
+
+
+<h2>Create</h2>
+
+
+
+<form id="form1" runat="server">
+    <div>
+        <label for="fileUpload">Select File to Upload: <input id="fileUpload" type="file" /></label>
+
+        <input id="btnUploadFile" type="button" value="Upload File" />
+
+    </div><br>
+
+    <div>
+        <input type="button" onclick=window.open("UploadedFiles/cd.xml",null,"status =no,toolbar =no,menubar =no") value="show XML file"></'input>
+
+    </div><br>
+
+    <div>
+        <input type="button" onclick="showXmlInTable()" value="show xml in table" />
+
+    </div><br>
+
+    <p id="dvContent"> </p>
+</form>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>Image</h4>
+        <hr />
+        @Html.ValidationSummary(true)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.url, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.url)
+                @Html.ValidationMessageFor(model => model.url)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

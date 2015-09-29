@@ -1,0 +1,44 @@
+﻿@model IEnumerable<My_lab7.Models.Collage>
+
+@{
+    ViewBag.Title = "Collage Infomation";
+}
+
+<h2>Collage Infomation</h2>
+
+<p>
+    @Html.ActionLink("Create New Collage", "Create")
+</p>
+<table class="table">
+@foreach (var item in Model) {
+    <tr>
+    <th>
+        <a href=@Html.DisplayFor(modelItem => item.PageLink) >
+           @Html.DisplayNameFor(model => model.name) : @Html.DisplayFor(modelItem => item.name)</a>
+
+        <br>
+            <br>
+
+            @Html.DisplayNameFor(model => model.description)
+            <pre>@Html.DisplayFor(modelItem => item.description)
+                </pre>
+            <br>
+
+            @Html.DisplayNameFor(model => model.DateOfBuild)
+
+    @Html.DisplayFor(modelItem => item.DateOfBuild)
+            <br>
+    @Html.DisplayNameFor(model => model.UserName)
+
+    @Html.DisplayFor(modelItem => item.UserName)
+
+            <br>
+            @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.id })
+
+    </th>
+
+        </tr>
+} 
+</table>

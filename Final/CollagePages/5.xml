@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Stories name="Syracuse！" description="I love syracuse" date="2015-05-05">
+  <Story id="7">
+    <Title>party!！</Title>
+    <Text>party！！</Text>
+    <AbsoluteImage>C:\Users\Home\Desktop\Final_yang\Final\CollagePages\UploadedFiles\Penguins.jpg</AbsoluteImage>
+    <RelativeImage>./UploadedFiles/Penguins.jpg</RelativeImage>
+    <DateOfBuild>2015-05-05</DateOfBuild>
+  </Story>
+</Stories>

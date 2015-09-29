@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Stories name="Happy Chinese New Year" description="Happy Chinese New Year" date="2015-05-05">
+  <Story id="8">
+    <Title>Happy day</Title>
+    <Text>123</Text>
+    <AbsoluteImage>C:\Users\Home\Desktop\Final_yang\Final\CollagePages\UploadedFiles\Tulips.jpg</AbsoluteImage>
+    <RelativeImage>./UploadedFiles/Tulips.jpg</RelativeImage>
+    <DateOfBuild>2015-05-05</DateOfBuild>
+  </Story>
+</Stories>
