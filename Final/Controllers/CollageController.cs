@@ -18,8 +18,9 @@ namespace My_lab7.Controllers
         // GET: /Collage/
         public ActionResult Index()
         {
-            if (Session["UserName"] == null || Session["UserName"].ToString() == "")
+            if (Session["UserName"] == null || Session["UserName"].ToString() == "") {
                 return RedirectToAction("../Account/Login");
+            }         
             return View(db.Collages.ToList());
         }
 
@@ -39,8 +40,9 @@ namespace My_lab7.Controllers
         // GET: /Collage/Create
         public ActionResult Create()
         {
-            if (Session["UserName"] == null || Session["UserName"].ToString() == "")
+            if (Session["UserName"] == null || Session["UserName"].ToString() == "") {
                 return RedirectToAction("../Account/Login");
+            }
             return View();
         }
 
@@ -57,23 +59,15 @@ namespace My_lab7.Controllers
             //Create static collage html page
             DateTime timefile = DateTime.Now;
             string relativeLink = "CollagePages/" + timefile.ToString("yyyyMMddHHmmssfff") + ".html";
-
             collage.PageLink = relativeLink;
-
             FileStream fs;
 
-            if (!System.IO.File.Exists(Server.MapPath("~/" + collage.PageLink)))
-            {
+            if (!System.IO.File.Exists(Server.MapPath("~/" + collage.PageLink))) {
                 fs = new FileStream(Server.MapPath("~/" + collage.PageLink), FileMode.Create, FileAccess.Write);
-
-            }
-            else
-            {
+            } else {
                 fs = new FileStream(Server.MapPath("~/" + collage.PageLink), FileMode.Open, FileAccess.Write);
             }
-
             StreamWriter sw = new StreamWriter(fs);
-
             sw.WriteLine("<!DOCTYPE html>");
             sw.WriteLine("<head> <link rel='stylesheet' href='1.css'> <title> Collage: " + collage.name + "</title> </head>");
             sw.WriteLine("<body>");
@@ -81,32 +75,24 @@ namespace My_lab7.Controllers
             sw.WriteLine("<h2 class='title' > Description: " + collage.description + "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;");
             sw.WriteLine("Date of Build: " + collage.DateOfBuild + "</h2>");
             sw.WriteLine("<p class='para' > Empty </p>");
-
-
-
             fs.Close();
-
             collage.UserName = s;
-            if (ModelState.IsValid)
-            {
+            if (ModelState.IsValid) {
                 db.Collages.Add(collage);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-
             return View(collage);
         }
 
         // GET: /Collage/Edit/5
         public ActionResult Edit(int? id)
         {
-            if (id == null)
-            {
+            if (id == null) {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Collage collage = db.Collages.Find(id);
-            if (collage == null)
-            {
+            if (collage == null) {
                 return HttpNotFound();
             }
             return View(collage);
@@ -120,17 +106,12 @@ namespace My_lab7.Controllers
         public ActionResult Edit([Bind(Include = "id,name,description,DateOfBuild,username")] Collage collage)
         {
             Collage temp = db.Collages.Find(new object[] { collage.id });
-
-            if (Session["UserName"] == null)
+            if (Session["UserName"] == null) {
                 return RedirectToAction("../Account/Login");
-            else if (!Session["UserName"].ToString().Equals(temp.UserName))
-            {
+            } else if (!Session["UserName"].ToString().Equals(temp.UserName)) {
                 return RedirectToAction("../Account/Login");
             }
-
-
-            if (ModelState.IsValid)
-            {
+            if (ModelState.IsValid) {
                 db.Collages.Remove(temp);
                 db.Collages.Add(collage);
                 db.SaveChanges();
@@ -143,13 +124,11 @@ namespace My_lab7.Controllers
         [Authorize(Roles = "admin")]
         public ActionResult Delete(int? id)
         {
-            if (id == null)
-            {
+            if (id == null) {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Collage collage = db.Collages.Find(id);
-            if (collage == null)
-            {
+            if (collage == null) {
                 return HttpNotFound();
             }
             return View(collage);
@@ -162,18 +141,14 @@ namespace My_lab7.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             Collage collage = db.Collages.Find(id);
-
             IQueryable<Story> storyQuery =
                 from str in db.Stories
                 where str.collage.id == id
                 select str;
 
-            foreach (Story story in storyQuery)
-            {
+            foreach (Story story in storyQuery) {
                 db.Stories.Remove(story);
             }
-
-
             db.Collages.Remove(collage);
             db.SaveChanges();
             return RedirectToAction("Index");
@@ -181,8 +156,7 @@ namespace My_lab7.Controllers
 
         protected override void Dispose(bool disposing)
         {
-            if (disposing)
-            {
+            if (disposing) {
                 db.Dispose();
             }
             base.Dispose(disposing);

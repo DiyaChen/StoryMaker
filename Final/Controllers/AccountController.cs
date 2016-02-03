@@ -48,26 +48,16 @@ namespace My_lab7.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Login(LoginViewModel model,  string returnUrl)
         {
-
-
-            if (ModelState.IsValid)
-            {
+            if (ModelState.IsValid) {
                 var user = await UserManager.FindAsync(model.UserName, model.Password);
-                if (user != null)
-                {
-                    
+                if (user != null) {
                     await SignInAsync(user, model.RememberMe);
                     Session["UserName"] = model.UserName;
-
                     return RedirectToLocal(returnUrl);
-                }
-                else
-                {
+                } else {
                     ModelState.AddModelError("", "Invalid username or password.");
                 }
             }
-
-
             //Roles.AddUserToRole(model.UserName, "Admin");
             // If we got this far, something failed, redisplay form
             return View(model);
@@ -88,24 +78,17 @@ namespace My_lab7.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Register(RegisterViewModel model)
         {
-            if (ModelState.IsValid)
-            {
+            if (ModelState.IsValid) {
                 var user = new ApplicationUser() { UserName = model.UserName };
-
                 Session["UserName"] = model.UserName;
                 var result = await UserManager.CreateAsync(user, model.Password);
-                if (result.Succeeded)
-                {
+                if (result.Succeeded) {
                     await SignInAsync(user, isPersistent: false);
-
                     return RedirectToAction("Index", "Home");
-                }
-                else
-                {
+                } else {
                     AddErrors(result);
                 }
             }
-
             // If we got this far, something failed, redisplay form
             return View(model);
         }
@@ -118,12 +101,9 @@ namespace My_lab7.Controllers
         {
             ManageMessageId? message = null;
             IdentityResult result = await UserManager.RemoveLoginAsync(User.Identity.GetUserId(), new UserLoginInfo(loginProvider, providerKey));
-            if (result.Succeeded)
-            {
+            if (result.Succeeded) {
                 message = ManageMessageId.RemoveLoginSuccess;
-            }
-            else
-            {
+            } else {
                 message = ManageMessageId.Error;
             }
             return RedirectToAction("Manage", new { Message = message });
@@ -153,39 +133,26 @@ namespace My_lab7.Controllers
             bool hasPassword = HasPassword();
             ViewBag.HasLocalPassword = hasPassword;
             ViewBag.ReturnUrl = Url.Action("Manage");
-            if (hasPassword)
-            {
-                if (ModelState.IsValid)
-                {
+            if (hasPassword) {
+                if (ModelState.IsValid) {
                     IdentityResult result = await UserManager.ChangePasswordAsync(User.Identity.GetUserId(), model.OldPassword, model.NewPassword);
-                    if (result.Succeeded)
-                    {
+                    if (result.Succeeded) {
                         return RedirectToAction("Manage", new { Message = ManageMessageId.ChangePasswordSuccess });
-                    }
-                    else
-                    {
+                    } else {
                         AddErrors(result);
                     }
                 }
-            }
-            else
-            {
+            } else {
                 // User does not have a password so remove any validation errors caused by a missing OldPassword field
                 ModelState state = ModelState["OldPassword"];
-                if (state != null)
-                {
+                if (state != null) {
                     state.Errors.Clear();
                 }
-
-                if (ModelState.IsValid)
-                {
+                if (ModelState.IsValid) {
                     IdentityResult result = await UserManager.AddPasswordAsync(User.Identity.GetUserId(), model.NewPassword);
-                    if (result.Succeeded)
-                    {
+                    if (result.Succeeded) {
                         return RedirectToAction("Manage", new { Message = ManageMessageId.SetPasswordSuccess });
-                    }
-                    else
-                    {
+                    } else {
                         AddErrors(result);
                     }
                 }
@@ -212,21 +179,15 @@ namespace My_lab7.Controllers
         public async Task<ActionResult> ExternalLoginCallback(string returnUrl)
         {
             var loginInfo = await AuthenticationManager.GetExternalLoginInfoAsync();
-            if (loginInfo == null)
-            {
+            if (loginInfo == null) {
                 return RedirectToAction("Login");
             }
-
             // Sign in the user with this external login provider if the user already has a login
             var user = await UserManager.FindAsync(loginInfo.Login);
-            if (user != null)
-            {
+            if (user != null) {
                 await SignInAsync(user, isPersistent: false);
-
                 return RedirectToLocal(returnUrl);
-            }
-            else
-            {
+            } else {
                 // If the user does not have an account, then prompt the user to create an account
                 ViewBag.ReturnUrl = returnUrl;
                 ViewBag.LoginProvider = loginInfo.Login.LoginProvider;
@@ -249,13 +210,11 @@ namespace My_lab7.Controllers
         public async Task<ActionResult> LinkLoginCallback()
         {
             var loginInfo = await AuthenticationManager.GetExternalLoginInfoAsync(XsrfKey, User.Identity.GetUserId());
-            if (loginInfo == null)
-            {
+            if (loginInfo == null) {
                 return RedirectToAction("Manage", new { Message = ManageMessageId.Error });
             }
             var result = await UserManager.AddLoginAsync(User.Identity.GetUserId(), loginInfo.Login);
-            if (result.Succeeded)
-            {
+            if (result.Succeeded) {
                 return RedirectToAction("Manage");
             }
             return RedirectToAction("Manage", new { Message = ManageMessageId.Error });
@@ -268,26 +227,20 @@ namespace My_lab7.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> ExternalLoginConfirmation(ExternalLoginConfirmationViewModel model, string returnUrl)
         {
-            if (User.Identity.IsAuthenticated)
-            {
+            if (User.Identity.IsAuthenticated) {
                 return RedirectToAction("Manage");
             }
-
-            if (ModelState.IsValid)
-            {
+            if (ModelState.IsValid) {
                 // Get the information about the user from the external login provider
                 var info = await AuthenticationManager.GetExternalLoginInfoAsync();
-                if (info == null)
-                {
+                if (info == null) {
                     return View("ExternalLoginFailure");
                 }
                 var user = new ApplicationUser() { UserName = model.UserName };
                 var result = await UserManager.CreateAsync(user);
-                if (result.Succeeded)
-                {
+                if (result.Succeeded) {
                     result = await UserManager.AddLoginAsync(user.Id, info.Login);
-                    if (result.Succeeded)
-                    {
+                    if (result.Succeeded) {
                         Session["UserName"] = model.UserName;
                         await SignInAsync(user, isPersistent: false);
                         return RedirectToLocal(returnUrl);
@@ -328,8 +281,7 @@ namespace My_lab7.Controllers
 
         protected override void Dispose(bool disposing)
         {
-            if (disposing && UserManager != null)
-            {
+            if (disposing && UserManager != null) {
                 UserManager.Dispose();
                 UserManager = null;
             }
