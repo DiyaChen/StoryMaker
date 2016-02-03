@@ -26,8 +26,6 @@ using System.Xml;  // need to add reference to System.Net.Http
 
 namespace Client
 {
-
-
     public class TestClient
     {
         private HttpClient client = new HttpClient();
@@ -36,7 +34,6 @@ namespace Client
         private string urlBase;
         public string storyName { get; set; }
         public string status { get; set; }
-
         //----< set destination url >------------------------------------------
         public TestClient(string url) { urlBase = url; }
 
@@ -71,14 +68,10 @@ namespace Client
 
         FileStream openClientDownLoadFile(string donwload)
         {
-
             FileStream down;
-            try
-            {
+            try {
                 down = new FileStream(donwload, FileMode.OpenOrCreate);
-            }
-            catch
-            {
+            } catch {
                 return null;
             }
             return down;
@@ -139,12 +132,9 @@ namespace Client
         FileStream openClientUpLoadFile(string fileName)
         {
             FileStream up;
-            try
-            {
+            try {
                 up = new FileStream(fileName, FileMode.Open);
-            }
-            catch
-            {
+            } catch {
                 return null;
             }
             return up;
@@ -175,39 +165,22 @@ namespace Client
         {
 
             FileStream down;
-
-
-
             int status = openServerDownLoadFile(filename);
-
             filename = path + "\\" + filename;
             if (status >= 400)
                 return;
-
-
-
             down = openClientDownLoadFile(filename);
-
-
             while (true)
             {
                 int blockSize = 512;
                 byte[] Block = getFileBlock(down, blockSize);
-
-
                 if (Block.Length == 0 || blockSize <= 0)
                     break;
                 down.Write(Block, 0, Block.Length);
                 if (Block.Length < blockSize)    // last block
                     break;
             }
-
-
-
-
             closeServerFile();
-
-
             down.Close();
         }
         //----< upLoad File >--------------------------------------------------
@@ -234,11 +207,9 @@ namespace Client
             const int upBlockSize = 512;
             byte[] upBlock = new byte[upBlockSize];
             int bytesRead = upBlockSize;
-            while (bytesRead == upBlockSize)
-            {
+            while (bytesRead == upBlockSize) {
                 bytesRead = up.Read(upBlock, 0, upBlockSize);
-                if (bytesRead < upBlockSize)
-                {
+                if (bytesRead < upBlockSize) {
                     byte[] temp = new byte[bytesRead];
                     for (int i = 0; i < bytesRead; ++i)
                         temp[i] = upBlock[i];
@@ -256,8 +227,6 @@ namespace Client
             up.Close();
             string a = filename;
         }
-
-
     }
 
 
@@ -282,43 +251,31 @@ namespace Client
             dialog.Filter = "All files (*.*)|*.*|All Image Files|*.bmp;*.ico;*.gif;*.jpeg;*.jpg;*.png;*.tif;*.tiff";
             dialog.FilterIndex = 2;
             dialog.RestoreDirectory = true;
-            if (dialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            if (dialog.ShowDialog() == System.Windows.Forms.DialogResult.OK) {
                 resultFile = dialog.FileName;
-
+            }            
             ImageUrl.Text = resultFile;
 
         }
         private void Upload_Click(object sender, RoutedEventArgs e)
         {
 
-            if (this.Title.Text == "" || this.Title.Text == null)
-            {
+            if (this.Title.Text == "" || this.Title.Text == null) {
                 this.Alert.Content = "Please input title of story.";
                 return;
-            }
-            else if (this.Text.Text == "" || this.Text.Text == null)
-            {
+            } else if (this.Text.Text == "" || this.Text.Text == null) {
                 this.Alert.Content = "Please input text of story.";
                 return;
-            }
-            else if (this.ImageUrl.Text == "" || this.ImageUrl.Text == null)
-            {
+            } else if (this.ImageUrl.Text == "" || this.ImageUrl.Text == null) {
                 this.Alert.Content = "Please choose an photo to upload.";
                 return;
             }
-
-
-
             string uploadFile = ImageUrl.Text;
-
             string name = System.IO.Path.GetFileName(ImageUrl.Text);
-
             string uploadText = generateXMLfile(this.Title.Text, this.Text.Text, name);
             tc.upLoadFile(uploadFile);
             tc.upLoadFile(uploadText);
             this.Alert.Content = "Story block uploaded successful!";
-
-
         }
 
         private void DownloadStory_Click(object sender, RoutedEventArgs e)
@@ -328,10 +285,8 @@ namespace Client
             Thread.Sleep(100);
             if (files.Length == 0)
                 return;
-
             string filename = files[files.Length - 1];
-            if (this.DownloadPath.Text == "" || this.DownloadPath.Text == null)
-            {
+            if (this.DownloadPath.Text == "" || this.DownloadPath.Text == null) {
                 this.Alert.Content = "Please choose a path to download";
                 return;
             }
@@ -345,30 +300,20 @@ namespace Client
             
             string fileName = System.IO.Directory.GetCurrentDirectory();
             fileName += "/StoryBlock/" + "story.xml";
-
             XmlNode node = doc.CreateXmlDeclaration("1.0", "utf-8", "");
             doc.AppendChild(node);
-
             XmlElement xmlRoot = doc.CreateElement("StoryBlock");
-
             doc.AppendChild(xmlRoot);
-　  
 　          XmlElement xmlChild1 = doc.CreateElement("Title");
-
             xmlChild1.InnerText = title;
-
-           XmlElement xmlChild2 = doc.CreateElement("Text");
+            XmlElement xmlChild2 = doc.CreateElement("Text");
             xmlChild2.InnerText = text;
-
             XmlElement xmlChild3 = doc.CreateElement("Image");
             xmlChild3.InnerText = "~\\CollagePages\\UploadedFiles\\" + img;
-
             xmlRoot.AppendChild(xmlChild1);
             xmlRoot.AppendChild(xmlChild2);
-            xmlRoot.AppendChild(xmlChild3);
-                
-            doc.Save(fileName);
-            
+            xmlRoot.AppendChild(xmlChild3);               
+            doc.Save(fileName);           
             return fileName;
         }
 
@@ -379,15 +324,9 @@ namespace Client
             string path = AppDomain.CurrentDomain.BaseDirectory;
             pathdlg.SelectedPath = path;
             DialogResult result = pathdlg.ShowDialog();
-            if (result == System.Windows.Forms.DialogResult.OK)
-            {
+            if (result == System.Windows.Forms.DialogResult.OK) {
                 DownloadPath.Text = pathdlg.SelectedPath;
             }
         }
-    
-
-
     }
-
-
 }
