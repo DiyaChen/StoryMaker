@@ -26,19 +26,14 @@ namespace My_lab7.Controllers
         // GET: /Collage/Details/5
         public ActionResult Details(int? id)
         {
-            if (id == null)
-            {
+            if (id == null) {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Collage collage = db.Collages.Find(id);
-
-            if (collage == null)
-            {
+            if (collage == null) {
                 return HttpNotFound();
             }
-
-                return View(collage);
-
+            return View(collage);
         }
 
         // GET: /Collage/Create
