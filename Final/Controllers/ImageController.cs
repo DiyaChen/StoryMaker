@@ -23,13 +23,11 @@ namespace My_lab7.Controllers
         // GET: /Image/Details/5
         public ActionResult Details(int? id)
         {
-            if (id == null)
-            {
+            if (id == null) {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Image image = db.Images.Find(id);
-            if (image == null)
-            {
+            if (image == null) {
                 return HttpNotFound();
             }
             return View(image);
@@ -48,26 +46,22 @@ namespace My_lab7.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include="id,url")] Image image)
         {
-            if (ModelState.IsValid)
-            {
+            if (ModelState.IsValid) {
                 db.Images.Add(image);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-
             return View(image);
         }
 
         // GET: /Image/Edit/5
         public ActionResult Edit(int? id)
         {
-            if (id == null)
-            {
+            if (id == null) {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Image image = db.Images.Find(id);
-            if (image == null)
-            {
+            if (image == null) {
                 return HttpNotFound();
             }
             return View(image);
@@ -80,8 +74,7 @@ namespace My_lab7.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include="id,url")] Image image)
         {
-            if (ModelState.IsValid)
-            {
+            if (ModelState.IsValid) {
                 db.Entry(image).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -92,13 +85,11 @@ namespace My_lab7.Controllers
         // GET: /Image/Delete/5
         public ActionResult Delete(int? id)
         {
-            if (id == null)
-            {
+            if (id == null) {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Image image = db.Images.Find(id);
-            if (image == null)
-            {
+            if (image == null) {
                 return HttpNotFound();
             }
             return View(image);
@@ -117,8 +108,7 @@ namespace My_lab7.Controllers
 
         protected override void Dispose(bool disposing)
         {
-            if (disposing)
-            {
+            if (disposing) {
                 db.Dispose();
             }
             base.Dispose(disposing);
